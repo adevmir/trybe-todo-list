@@ -5,4 +5,5 @@ function criaTarefa(li) {
 
     var create = document.querySelector('ol');
     create.appendChild(lista);
+    document.querySelector('#texto-tarefa').value = '';
 }
