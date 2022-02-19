@@ -16,13 +16,13 @@ function criaTarefa(li) {
     document.querySelector('#texto-tarefa').value = '';
 }
 
-function fundoCinza(a) {
+function fundoCinza(item) {
   if (contClickList > 1) { 
     const itemAnterior = document.querySelector(".selected")
     itemAnterior.setAttribute("class", "item");
     itemAnterior.setAttribute("style", 'background-color: white;');
   }
-    const itemList = document.getElementById(a);
+    const itemList = document.getElementById(item);
     itemList.setAttribute("style", "background-color: gray;");
     itemList.setAttribute("class", "selected");
     contClickList += 1;
