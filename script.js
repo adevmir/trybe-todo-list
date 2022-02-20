@@ -1,5 +1,5 @@
 var itemnum = 1;
-var contClickList = 1;
+var itemCinza = 'item1';
 
 function criaTarefa(li) {
     let item = 'item' + itemnum;  
@@ -9,6 +9,7 @@ function criaTarefa(li) {
     lista.setAttribute("onclick", "fundoCinza('" + item + "')");
     lista.setAttribute("id", item);
     lista.setAttribute("class", 'item');
+    lista.setAttribute("ondblclick", "completedItem('" + item + "')")
     itemnum += 1;
 
     var create = document.querySelector('ol');
@@ -17,13 +18,19 @@ function criaTarefa(li) {
 }
 
 function fundoCinza(item) {
-  if (contClickList > 1) { 
-    const itemAnterior = document.querySelector(".selected")
-    itemAnterior.setAttribute("class", "item");
-    itemAnterior.setAttribute("style", 'background-color: white;');
-  }
+  const itemAnterior = document.getElementById(itemCinza);
+  itemAnterior.setAttribute("style", 'background-color: white;');
     const itemList = document.getElementById(item);
     itemList.setAttribute("style", "background-color: gray;");
-    itemList.setAttribute("class", "selected");
-    contClickList += 1;
+    itemCinza = item;
+}
+
+function completedItem(completedId) {
+    const itemList = document.getElementById(completedId);
+    const itemClass = itemList.className;
+    if (itemClass === 'completed') {
+        itemList.setAttribute("class", 'item');
+    } else {
+        itemList.setAttribute("class", 'completed');
+    }
 }
