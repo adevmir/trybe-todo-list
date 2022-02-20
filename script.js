@@ -1,6 +1,10 @@
-var itemnum = 1;
+if (localStorage.itemNum) {
+    var itemnum = localStorage.itemNum;
+  } else {
+    var itemnum = 1;
+  }
 if (localStorage.itemCinza){
-    var itemCinza = localStorage.itemCinza
+    var itemCinza = localStorage.itemCinza;
 } else {
     var itemCinza = 'item1';
 }
@@ -45,12 +49,23 @@ function completedItem(completedId) {
 function limpaLista() {
     const div = document.querySelector("#lista-tarefas");
     div.innerHTML = "";
+    itemnum = 1;
 }
 
 function removerFinalizados() {
     const finalizados = document.querySelectorAll('.completed');
+    let orgList = '';
     for (let a = 0; a < finalizados.length; a += 1) {
         document.querySelector("#lista-tarefas").removeChild(finalizados[a]);
+        itemnum -= 1;
+    }
+    const newList = document.querySelectorAll('.item');
+    for (let a = 0; a < newList.length; a += 1){
+        orgList = newList[a];
+        console.log(orgList);
+        orgList.setAttribute('id', 'item' + (a + 1));
+        orgList.setAttribute('onclick', "fundoCinza('item" + (a + 1) + "')");
+        orgList.setAttribute('ondbclick', "completedItem('item" + (a + 1) + "')");
     }
 }
 
@@ -58,6 +73,7 @@ function salvarLista() {
     let listaUser = document.getElementById('lista-tarefas').innerHTML;
     localStorage.setItem('listaSalva', listaUser);
     localStorage.setItem('itemCinza', itemCinza);
+    localStorage.setItem('itemNum', itemnum);
 }
 
 function moverCima() {
@@ -69,8 +85,8 @@ function moverCima() {
    const atrDescer = descer.getAttribute('id');
    const listaForm = document.getElementById('lista-tarefas');
    listaForm.insertBefore(subir, descer);
-   subir.setAttribute('id', atrDescer, 'onclick');
-   descer.setAttribute('id', atrSubir, 'onclick');
+   subir.setAttribute('id', atrDescer);
+   descer.setAttribute('id', atrSubir);
    subir.setAttribute('onclick', "fundoCinza('" + itemAcima + "')");
    descer.setAttribute('onclick', "fundoCinza('" + itemCinza + "')");
    itemCinza = itemAcima;
@@ -88,7 +104,24 @@ function moverBaixo() {
     listaForm.insertBefore(subir, descer);
     subir.setAttribute('id', atrDescer, 'onclick');
     descer.setAttribute('id', atrSubir, 'onclick');
-    subir.setAttribute('onclick', "fundoCinza('" + itemBaixo + "')");
-    descer.setAttribute('onclick', "fundoCinza('" + itemCinza + "')");
+    subir.setAttribute('onclick', "fundoCinza('" + itemCinza + "')");
+    descer.setAttribute('onclick', "fundoCinza('" + itemBaixo + "')");
+    subir.setAttribute('ondbclick', "completedItem('" + itemCinza + "')");
+    descer.setAttribute('ondbclick', "completedItem('" + itemBaixo + "')");
     itemCinza = itemBaixo;
  }
+
+ function removerSelecionado() {
+    const selecionado = document.getElementById(itemCinza);
+    document.querySelector("#lista-tarefas").removeChild(selecionado);
+    itemCinza = 'item1';
+    itemnum -= 1;
+    const newList = document.querySelectorAll('.item')
+    for (let a = 0; a < newList.length; a += 1){
+        orgList = newList[a];
+        console.log(orgList);
+        orgList.setAttribute('id', 'item' + (a + 1));
+        orgList.setAttribute('onclick', "fundoCinza('item" + (a + 1) + "')");
+        orgList.setAttribute('ondbclick', "completedItem('item" + (a + 1) + "')");
+    }
+}
