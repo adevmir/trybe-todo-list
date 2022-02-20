@@ -1,5 +1,8 @@
 var itemnum = 1;
 var itemCinza = 'item1';
+if (localStorage.listaSalva) {
+    document.querySelector('#lista-tarefas').innerHTML = localStorage.listaSalva;
+}
 
 function criaTarefa(li) {
     let item = 'item' + itemnum;  
@@ -45,4 +48,10 @@ function removerFinalizados() {
     for (let a = 0; a < finalizados.length; a += 1) {
         document.querySelector("#lista-tarefas").removeChild(finalizados[a]);
     }
+}
+
+function salvarLista() {
+    let listaUser = document.getElementById('lista-tarefas').innerHTML;
+    localStorage.setItem('listaSalva', listaUser);
+    console.log(listaUser);
 }
