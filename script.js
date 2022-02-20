@@ -39,3 +39,10 @@ function limpaLista() {
     const div = document.querySelector("#lista-tarefas");
     div.innerHTML = "";
 }
+
+function removerFinalizados() {
+    const finalizados = document.querySelectorAll('.completed');
+    for (let a = 0; a < finalizados.length; a += 1) {
+        document.querySelector("#lista-tarefas").removeChild(finalizados[a]);
+    }
+}
