@@ -13,13 +13,13 @@
     </header>
     <p id="funcionamento"> Clique duas vezes em um item para marcá-lo como completo </p>
     <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa" onclick="criaTarefa('li')"> Criar </button>
+    <button id="criar-tarefa" onclick="criaTarefa('li')"> Criar </button> <br>
+    <button id="remover-selecionado" onclick="removerSelecionado()"> X </button>
+    <button id="mover-cima" onclick="moverCima()"> ↑ </button>
+    <button id="mover-baixo" onclick="moverBaixo()"> ↓ </button>
     <button id="apaga-tudo" onclick="limpaLista()"> Limpar Lista </button>
-    <button id="remover-finalizados" onclick="removerFinalizados()"> Remover Itens Finalizados</button>
+    <button id="remover-finalizados" onclick="removerFinalizados()"> Remover Finalizados</button>
     <button id="salvar-tarefas" onclick="salvarLista()"> Salvar </button>
-    <button id="mover-cima" onclick="moverCima()"> Subir ↑ </button>
-    <button id="mover-baixo" onclick="moverBaixo()"> Descer ↓ </button>
-    <button id="remover-selecionado" onclick="removerSelecionado()"> Remover Item Selecionado </button>
     <ol id="lista-tarefas"></ol>
     <script src="script.js"></script>
 </body>

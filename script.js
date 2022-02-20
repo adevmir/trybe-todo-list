@@ -80,6 +80,9 @@ function moverCima() {
    const subir = document.getElementById(itemCinza);
    const atrSubir = subir.getAttribute('id');
    let numId = itemCinza[4];
+   if (numId == 1){
+    console.log('Esse ja é o primeiro item');
+  } else {
    let itemAcima = 'item' + (numId - 1);
    const descer = document.getElementById(itemAcima);
    const atrDescer = descer.getAttribute('id');
@@ -90,12 +93,17 @@ function moverCima() {
    subir.setAttribute('onclick', "fundoCinza('" + itemAcima + "')");
    descer.setAttribute('onclick', "fundoCinza('" + itemCinza + "')");
    itemCinza = itemAcima;
+   }
 }
 
 function moverBaixo() {
+    let quantItens = document.querySelectorAll('.item').length;
     const descer = document.getElementById(itemCinza);
     const atrDescer = descer.getAttribute('id');
     let numId = itemCinza[4];
+    if (numId == quantItens){
+        console.log('Esse ja é o ultimo item');
+      } else {
     numId = parseInt(numId, 10);
     let itemBaixo = 'item' + (numId + 1);
     const subir = document.getElementById(itemBaixo);
@@ -109,6 +117,7 @@ function moverBaixo() {
     subir.setAttribute('ondbclick', "completedItem('" + itemCinza + "')");
     descer.setAttribute('ondbclick', "completedItem('" + itemBaixo + "')");
     itemCinza = itemBaixo;
+    }
  }
 
  function removerSelecionado() {
