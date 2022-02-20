@@ -30,7 +30,7 @@ function criaTarefa(li) {
 
 function fundoCinza(item) {
   const itemAnterior = document.getElementById(itemCinza);
-  itemAnterior.setAttribute("style", 'background-color: white;');
+  itemAnterior.setAttribute("style", 'background-color: ;');
     const itemList = document.getElementById(item);
     itemList.setAttribute("style", "background-color: gray;");
     itemCinza = item;

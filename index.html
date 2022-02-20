@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Lista de Tarefas</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-<body>
-    <header>
-        <h1> Minha Lista de Tarefas </h1>
+  </head>
+  <body class="body">
+    <header class="header">
+      <h1> Minha Lista de Tarefas </h1>
+      <p id="funcionamento"> Clique duas vezes em um item para marcá-lo como completo </p>
+      <input type="text" id="texto-tarefa">
+      <button class="button" id="criar-tarefa" onclick="criaTarefa('li')"> Criar </button> <br>
+      <button class="button" id="remover-selecionado" onclick="removerSelecionado()"> X </button>
+      <button class="button" id="mover-cima" onclick="moverCima()"> ↑ </button>
+      <button class="button" id="mover-baixo" onclick="moverBaixo()"> ↓ </button>
+      <button class="button" id="apaga-tudo" onclick="limpaLista()"> Limpar Lista </button>
+      <button class="button" id="remover-finalizados" onclick="removerFinalizados()"> Remover Finalizados</button>
+      <button class="button" id="salvar-tarefas" onclick="salvarLista()"> Salvar </button>
     </header>
-    <p id="funcionamento"> Clique duas vezes em um item para marcá-lo como completo </p>
-    <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa" onclick="criaTarefa('li')"> Criar </button> <br>
-    <button id="remover-selecionado" onclick="removerSelecionado()"> X </button>
-    <button id="mover-cima" onclick="moverCima()"> ↑ </button>
-    <button id="mover-baixo" onclick="moverBaixo()"> ↓ </button>
-    <button id="apaga-tudo" onclick="limpaLista()"> Limpar Lista </button>
-    <button id="remover-finalizados" onclick="removerFinalizados()"> Remover Finalizados</button>
-    <button id="salvar-tarefas" onclick="salvarLista()"> Salvar </button>
-    <ol id="lista-tarefas"></ol>
+    <main class="main">
+      <ol id="lista-tarefas"></ol>
+    </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
