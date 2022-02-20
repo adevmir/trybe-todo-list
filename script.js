@@ -34,3 +34,8 @@ function completedItem(completedId) {
         itemList.setAttribute("class", 'completed');
     }
 }
+
+function limpaLista() {
+    const div = document.querySelector("#lista-tarefas");
+    div.innerHTML = "";
+}
