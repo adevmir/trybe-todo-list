@@ -89,8 +89,9 @@ function salvarLista() {
 function moverCima() {
   const subir = document.getElementById(itemCinza);
   const numId = itemCinza[4];
-  if (numId === 1) {
-    console.log('Esse ja é o primeiro item');
+  console.log(numId);
+  if (numId == 1) {
+    alert('Esse ja é o primeiro item');
   } else {
     const itemAcima = `item${numId - 1}`;
     const descer = document.getElementById(itemAcima);
@@ -106,8 +107,9 @@ function moverBaixo() {
   const quantItens = document.querySelectorAll('.item').length;
   const descer = document.getElementById(itemCinza);
   let numId = itemCinza[4];
-  if (numId === quantItens) {
-    console.log('Esse ja é o ultimo item');
+  console.log(numId);
+  if (numId == quantItens) {
+    alert('Esse ja é o ultimo item');
   } else {
     numId = parseInt(numId, 10);
     const itemBaixo = `item${numId + 1}`;
